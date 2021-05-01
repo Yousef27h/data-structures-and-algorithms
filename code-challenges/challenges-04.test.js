@@ -264,7 +264,6 @@ const dayOrder = {
 }
 
 const sortMeetingsByDay = (arr) => {
-  // let newArr = arr.map((value)=> value.dayOfWeek)
   arr.sort((a,b)=>{
     let day1 = a.dayOfWeek.toLowerCase();
     let day2 = b.dayOfWeek.toLowerCase();
