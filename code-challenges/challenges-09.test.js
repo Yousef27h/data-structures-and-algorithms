@@ -9,12 +9,10 @@ using the 'reduce' method.
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
-  let maxNum = -1;
-  arr.reduce((acc,current) =>{
-    Math.max(acc, current)
-  
-  })
-  return acc
+  return arr.reduce((acc,current) =>{
+    acc = current > acc ? current : acc;
+    return acc
+  },-100)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -30,7 +28,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 };
 
 const getCourseKeys = (obj) => {
-  // Solution code here...
+  return Object.keys(obj)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -42,7 +40,7 @@ Write a function named checkValues that takes in an object and a value and retur
 ------------------------------------------------------------------------------------------------ */
 
 const checkValues = (obj, value) => {
-  // Solution code here...
+  return Object.values(obj).includes(value) && true;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,7 +63,11 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
-  // Solution code here...
+  let myArr = [];
+  for (const [key, value] of Object.entries(obj)) {
+  myArr.push(`${key}: ${value}`);
+}
+return myArr
 };
 
 
@@ -121,7 +123,7 @@ const characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  arr.map((value)=> houses.push(value.house))
   return houses;
 };
 
@@ -138,8 +140,13 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-
+  let myBool = false;
+  arr.map((value)=>{
+    if (value.name === character){
+      myBool= value.children !== undefined ? true:false;
+    }
+  })
+  return myBool
 };
 
 /* ------------------------------------------------------------------------------------------------
